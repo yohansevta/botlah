@@ -67,6 +67,7 @@ local function initializeUI()
         if not rayfield then
             error("Failed to load Rayfield UI library")
         end
+        print("✅ Rayfield library loaded")
         
         -- Create main window
         local window = rayfield:CreateWindow({
@@ -78,6 +79,8 @@ local function initializeUI()
             error("Failed to create UI window")
         end
         
+        print("✅ UI Window created successfully")
+        
         -- Store UI context globally
         _G.BotlahUI = {
             window = window,
@@ -85,7 +88,43 @@ local function initializeUI()
             tabs = {}
         }
         
-        print("✅ UI Window created successfully")
+        -- Create welcome message in a test UI element
+        spawn(function()
+            wait(1)
+            local Players = game:GetService("Players")
+            local LocalPlayer = Players.LocalPlayer
+            if LocalPlayer and LocalPlayer:FindFirstChild("PlayerGui") then
+                local notifyGui = Instance.new("ScreenGui")
+                notifyGui.Name = "BotlahNotification"
+                notifyGui.Parent = LocalPlayer.PlayerGui
+                
+                local notifyFrame = Instance.new("Frame")
+                notifyFrame.Size = UDim2.new(0, 300, 0, 80)
+                notifyFrame.Position = UDim2.new(1, -320, 0, 20)
+                notifyFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
+                notifyFrame.BorderSizePixel = 0
+                notifyFrame.Parent = notifyGui
+                
+                local corner = Instance.new("UICorner")
+                corner.CornerRadius = UDim.new(0, 8)
+                corner.Parent = notifyFrame
+                
+                local notifyLabel = Instance.new("TextLabel")
+                notifyLabel.Size = UDim2.new(1, -10, 1, 0)
+                notifyLabel.Position = UDim2.new(0, 5, 0, 0)
+                notifyLabel.Text = "🎉 Botlah Modular System\n✅ UI Initialized Successfully!"
+                notifyLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+                notifyLabel.BackgroundTransparency = 1
+                notifyLabel.Font = Enum.Font.GothamBold
+                notifyLabel.TextSize = 12
+                notifyLabel.TextWrapped = true
+                notifyLabel.Parent = notifyFrame
+                
+                -- Auto cleanup
+                game:GetService("Debris"):AddItem(notifyGui, 5)
+            end
+        end)
+        
         return true
     end)
     
