@@ -92,7 +92,7 @@ local function safeLoadAndRun(url, fallbackScript)
 end
 
 -- Main execution
-local originalUrl = "https://raw.githubusercontent.com/MELLISAEFFENDY/bikin/refs/heads/main/16.lua"
+local originalUrl = "https://raw.githubusercontent.com/yohansevta/botlah/main/autofish_original.lua"
 local success = safeLoadAndRun(originalUrl)
 
 if not success then

@@ -37,6 +37,6 @@ local function safeLoad(url)
     return true
 end
 
--- Try loading the script
-local url = "https://raw.githubusercontent.com/MELLISAEFFENDY/bikin/refs/heads/main/16.lua"
+-- Try loading the script from our own repository
+local url = "https://raw.githubusercontent.com/yohansevta/botlah/main/autofish_original.lua"
 safeLoad(url)
