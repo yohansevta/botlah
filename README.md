@@ -10,6 +10,18 @@ Loading cepat untuk script utama dari repository sendiri:
 loadstring(game:HttpGet("https://raw.githubusercontent.com/yohansevta/botlah/main/quick_loader.lua"))()
 ```
 
+### 🔧 Modular System (Fixed)
+Sistem modular yang diperbaiki untuk loadstring:
+```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/yohansevta/botlah/main/main_fixed.lua"))()
+```
+
+### 🧪 Modular Debug
+Debug tool untuk sistem modular:
+```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/yohansevta/botlah/main/modular_debug.lua"))()
+```
+
 ### 🎣 AutoFish Script (Local Copy)
 Script utama yang sudah di-copy ke repository sendiri:
 ```lua
@@ -67,11 +79,32 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/yohansevta/botlah/mai
 
 ## 🔧 Troubleshooting
 Jika UI tidak muncul:
-1. Gunakan **quick_loader.lua** (RECOMMENDED) 
-2. Jika masih gagal, coba **fixed_loader.lua**
-3. Jalankan debug script untuk identifikasi masalah
-4. Cek console output untuk error messages  
-5. Pastikan executor mendukung semua API yang digunakan
+
+### 🚨 **MASALAH UMUM**: Sistem Modular main.lua
+Jika menggunakan `main.lua` tidak muncul UI, ini karena masalah loadstring dengan dependencies.
+
+**SOLUSI**:
+1. **Gunakan main_fixed.lua** (RECOMMENDED untuk modular):
+   ```lua
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/yohansevta/botlah/main/main_fixed.lua"))()
+   ```
+
+2. **Atau gunakan quick_loader.lua** (Simple & reliable):
+   ```lua
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/yohansevta/botlah/main/quick_loader.lua"))()
+   ```
+
+### 🧪 **Debug Sistem Modular**:
+```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/yohansevta/botlah/main/modular_debug.lua"))()
+```
+
+### 📋 **Langkah Troubleshooting**:
+1. **Debug dulu** - Jalankan modular_debug.lua untuk cek masalah
+2. **Gunakan fixed version** - main_fixed.lua untuk sistem modular  
+3. **Fallback ke simple** - quick_loader.lua jika modular bermasalah
+4. **Last resort** - debug_script.lua untuk identifikasi masalah dasar
+5. **Cek executor** - Pastikan mendukung semua API yang digunakan
 
 ## 📊 Status
 ✅ Script original di-copy ke repository sendiri  
