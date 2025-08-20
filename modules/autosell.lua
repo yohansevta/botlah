@@ -1,18 +1,4 @@
-local UIContext = require(script.Parent.ui_context)
-function AutoSell.init()
-    local tab = UIContext.window:CreateTab("AutoSell")
-    local label = Instance.new("TextLabel")
-    label.Text = "AutoSell Status: " .. tostring(AutoSell.enabled and "Enabled" or "Disabled")
-    label.Size = UDim2.new(1,0,0,40)
-    label.BackgroundTransparency = 1
-    label.TextColor3 = Color3.fromRGB(255,255,255)
-    label.Font = Enum.Font.GothamBold
-    label.TextSize = 16
-    label.Parent = tab
-end
 -- autosell.lua
-local Utils = require(script.Parent.utils)
-local ResolveRemote = Utils.ResolveRemote
 
 local AutoSell = {
     enabled = false,
@@ -23,6 +9,12 @@ local AutoSell = {
     lastSellTime = 0,
     sellCooldown = 5,
     serverThreshold = 50,
+}
+
+function AutoSell.init()
+    print("✓ AutoSell module initialized")
+    -- Initialize autosell system
+end
     lastSyncTime = 0,
     syncCooldown = 2,
     isThresholdSynced = false,

@@ -1,18 +1,18 @@
-local UIContext = require(script.Parent.ui_context)
-function Enhancement.init()
-    local tab = UIContext.window:CreateTab("Enhancement")
-    local label = Instance.new("TextLabel")
-    label.Text = "Enhancement Status: " .. tostring(Enhancement.enabled and "Enabled" or "Disabled")
-    label.Size = UDim2.new(1,0,0,40)
-    label.BackgroundTransparency = 1
-    label.TextColor3 = Color3.fromRGB(255,255,255)
-    label.Font = Enum.Font.GothamBold
-    label.TextSize = 16
-    label.Parent = tab
-end
 -- enhancement.lua
-local Utils = require(script.Parent.utils)
-local ResolveRemote = Utils.ResolveRemote
+
+local Enhancement = {
+    enabled = false,
+    autoEnchantEnabled = false,
+    targetEnchantLevel = 5,
+    minSuccessChance = 80,
+    lastEnchantTime = 0,
+    enchantCooldown = 3
+}
+
+function Enhancement.init()
+    print("✓ Enhancement module initialized")
+    -- Initialize enhancement system
+end
 
 local Enhancement = {
     enabled = false,

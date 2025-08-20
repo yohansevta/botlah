@@ -1,23 +1,14 @@
-local UIContext = require(script.Parent.ui_context)
-function Fishing.init()
-    local tab = UIContext.window:CreateTab("Fishing AI")
-    local label = Instance.new("TextLabel")
-    label.Text = "Fishing AI Status: Ready"
-    label.Size = UDim2.new(1,0,0,40)
-    label.BackgroundTransparency = 1
-    label.TextColor3 = Color3.fromRGB(255,255,255)
-    label.Font = Enum.Font.GothamBold
-    label.TextSize = 16
-    label.Parent = tab
-end
 -- fishing.lua
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local workspace = game:GetService("Workspace")
-local Utils = require(script.Parent.utils)
-local Dashboard = require(script.Parent.dashboard)
 
 local Fishing = {}
+
+function Fishing.init()
+    print("✓ Fishing module initialized")
+    -- Initialize fishing system
+end
 
 local netResolve = Utils.ResolveRemote
 local rodRemote = netResolve("RF/ChargeFishingRod")

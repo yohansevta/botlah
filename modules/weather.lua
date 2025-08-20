@@ -1,18 +1,17 @@
-local UIContext = require(script.Parent.ui_context)
-function Weather.init()
-    local tab = UIContext.window:CreateTab("Weather")
-    local label = Instance.new("TextLabel")
-    label.Text = "Weather Status: " .. tostring(Weather.enabled and "Enabled" or "Disabled")
-    label.Size = UDim2.new(1,0,0,40)
-    label.BackgroundTransparency = 1
-    label.TextColor3 = Color3.fromRGB(255,255,255)
-    label.Font = Enum.Font.GothamBold
-    label.TextSize = 16
-    label.Parent = tab
-end
 -- weather.lua
-local Utils = require(script.Parent.utils)
-local ResolveRemote = Utils.ResolveRemote
+
+local Weather = {
+    enabled = false,
+    autoWeatherEnabled = false,
+    preferredWeather = "Clear",
+    weatherCooldown = 60,
+    lastWeatherChange = 0
+}
+
+function Weather.init()
+    print("✓ Weather module initialized")
+    -- Initialize weather system
+end
 
 local Weather = {
     enabled = false,
