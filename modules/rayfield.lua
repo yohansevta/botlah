@@ -56,7 +56,11 @@ function Rayfield:CreateWindow(opts)
     function api:CreateTab(name)
         local btn = Make(Sidebar, "TextButton", {Size = UDim2.new(1,-10,0,40), Position = UDim2.new(0,5,0,#api.Buttons*50 + 10), Text = name, Font = Enum.Font.GothamSemibold, TextSize = 14, BackgroundColor3 = Color3.fromRGB(40,40,46), TextColor3 = Color3.fromRGB(200,200,200), TextXAlignment = Enum.TextXAlignment.Left})
         Make(btn, "UICorner", {})
-        local frame = Make(Content, "Frame", {Size = UDim2.new(1,0,1,-85), BackgroundTransparency = 1, Visible = false})
+        
+        -- Make first tab visible by default
+        local isFirstTab = #api.Buttons == 0
+        local frame = Make(Content, "Frame", {Size = UDim2.new(1,0,1,-85), BackgroundTransparency = 1, Visible = isFirstTab})
+        
         api.Buttons[#api.Buttons+1] = btn
         api.Tabs[name] = {Button = btn, Frame = frame}
         local index = #api.Buttons
